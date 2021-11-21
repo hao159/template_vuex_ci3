@@ -7,6 +7,7 @@ $this->load->view('template/inc/head_script', $data);
  ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/app-assets/css/plugins/forms/form-validation.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/app-assets/css/pages/page-auth.css">
+<script src='https://www.google.com/recaptcha/api.js?hl=vi' async defer></script>
  <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
     <!-- BEGIN: Content-->
     <div class="app-content content ">
@@ -48,21 +49,21 @@ $this->load->view('template/inc/head_script', $data);
                                     <h2 class="brand-text text-primary ml-1"><?= get_env('APP_NAME') ?></h2>
                                 </a>
 
-                                <h4 class="card-title mb-1">Welcome to <?=get_env('APP_NAME')?>! 👋</h4>
-                                <p class="card-text mb-2">Please sign-in to your account and start</p>
+                                <h4 class="card-title mb-1">Chào mừng đến với <?=get_env('APP_NAME')?>! 👋</h4>
+                                <p class="card-text mb-2">Vui lòng đăng nhập để sử dụng</p>
 
                                 <form class="auth-login-form mt-2" action="" method="post">
                                     <span class="m-2 error "><?= isset($_SESSION['error-login']) ? $_SESSION['error-login'] : '' ?></span>
                                     <div class="form-group">
-                                        <label for="user-name" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="login-email" name="user-name" required placeholder="john@example.com" aria-describedby="user-name" tabindex="1" autofocus />
+                                        <label for="user-name" class="form-label">Tài khoản</label>
+                                        <input type="text" class="form-control" id="login-email" name="user-name" required placeholder="abc" aria-describedby="user-name" tabindex="1" autofocus />
                                     </div>
 
                                     <div class="form-group">
                                         <div class="d-flex justify-content-between">
-                                            <label for="password">Password</label>
+                                            <label for="password">Mật khẩu</label>
                                             <a href="page-auth-forgot-password-v1.html">
-                                                <small>Forgot Password?</small>
+                                                <small class="d-none">Forgot Password?</small>
                                             </a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
@@ -73,12 +74,16 @@ $this->load->view('template/inc/head_script', $data);
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="" class="form-label">Capcha</label>
+                                        <div class="g-recaptcha" data-sitekey="<?= get_env('APP_GOOGLE_SITE_KEY') ?>"></div>
+                                    </div>
+                                    <div class="form-group d-none">
                                         <div class="custom-control custom-checkbox">
                                             <input class="custom-control-input" type="checkbox" id="remember-me" tabindex="3" />
                                             <label class="custom-control-label" for="remember-me"> Remember Me </label>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary btn-block" tabindex="4">Sign in</button>
+                                    <button class="btn btn-primary btn-block" tabindex="4">Đăng nhập <i data-feather='log-in'></i></button>
                                 </form>
                             </div>
                         </div>

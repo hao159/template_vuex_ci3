@@ -17,6 +17,15 @@ $config['template'] = array(
 	'title' => !empty($_ENV['APP_TITLE']) ? $_ENV['APP_TITLE'] : "Vuex + ci3 template",
 	'description' => !empty($_ENV['APP_DESC']) ? $_ENV['APP_DESC'] : "Vuex + ci3 template by hao.nguyen",
 	
+    /*
+        Config Skin:
+            + Light : '',
+            + Bordered : 'bordered-layout',
+            + Dark : 'dark-layout',
+            + Semi Dark : 'semi-dark-layout'
+    */
+    'layout-skin' => 'bordered-layout',
+    
 	// 'active_page' => substr(empty(uri_string()) ? uri_string() : '/', 1),
 );
 
